@@ -1,1 +1,0 @@
-dotnet new skoruba.duende.isadmin --name "WebBase.IDP" --title "WebBase.IDP" --adminemail "admin@gmail.com" --adminpassword "Admin@123" --adminrole ADMIN --adminclientid "WebBase.IDP" --adminclientsecret "WebBase.IDP" --dockersupport true
