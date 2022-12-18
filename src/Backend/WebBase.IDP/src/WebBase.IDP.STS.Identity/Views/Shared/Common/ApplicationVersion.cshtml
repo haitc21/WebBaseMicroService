@@ -1,0 +1,18 @@
+﻿@using System.Reflection
+@using WebBase.IDP.STS.Identity
+
+@{
+    var runtimeVersion = typeof(Startup)
+        .GetTypeInfo()
+        .Assembly
+        .GetCustomAttribute<AssemblyInformationalVersionAttribute>()?.InformationalVersion;
+}
+
+@runtimeVersion
+
+
+
+
+
+
+
