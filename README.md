@@ -23,7 +23,7 @@ Project template options:
 
 # mMgration IDP
 ```sh 
-#cd build
+cd src/Backend/WebBase.IDP/build
 .\add-migrations.ps1 -migration DbInit -migrationProviderName SqlServer
 ```
 
