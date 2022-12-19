@@ -37,4 +37,4 @@ Migration Options
 ```sh 
 npm i -f
 npm start
-```sh 
+```
