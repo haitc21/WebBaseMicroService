@@ -3,17 +3,19 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using WebBase.IDP.Admin.EntityFramework.Shared.DbContexts;
 
 #nullable disable
 
-namespace WebBase.IDP.Admin.EntityFramework.SqlServer.Migrations.Logging
+namespace WebBase.IDP.Admin.EntityFramework.SqlServer.Migrations.AuditLogging
 {
-    [DbContext(typeof(AdminLogDbContext))]
-    partial class AdminLogDbContextModelSnapshot : ModelSnapshot
+    [DbContext(typeof(AdminAuditLogDbContext))]
+    [Migration("20221219074430_TaoDb")]
+    partial class TaoDb
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -22,7 +24,7 @@ namespace WebBase.IDP.Admin.EntityFramework.SqlServer.Migrations.Logging
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
 
-            modelBuilder.Entity("Skoruba.Duende.IdentityServer.Admin.EntityFramework.Entities.Log", b =>
+            modelBuilder.Entity("Skoruba.AuditLogging.EntityFramework.Entities.AuditLog", b =>
                 {
                     b.Property<long>("Id")
                         .ValueGeneratedOnAdd()
@@ -30,31 +32,39 @@ namespace WebBase.IDP.Admin.EntityFramework.SqlServer.Migrations.Logging
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("Id"), 1L, 1);
 
-                    b.Property<string>("Exception")
+                    b.Property<string>("Action")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Level")
-                        .HasMaxLength(128)
-                        .HasColumnType("nvarchar(128)");
-
-                    b.Property<string>("LogEvent")
+                    b.Property<string>("Category")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Message")
+                    b.Property<DateTime>("Created")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Data")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("MessageTemplate")
+                    b.Property<string>("Event")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Properties")
+                    b.Property<string>("Source")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTimeOffset>("TimeStamp")
-                        .HasColumnType("datetimeoffset");
+                    b.Property<string>("SubjectAdditionalData")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("SubjectIdentifier")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("SubjectName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("SubjectType")
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
-                    b.ToTable("Log", (string)null);
+                    b.ToTable("AuditLog");
                 });
 #pragma warning restore 612, 618
         }

@@ -84,7 +84,7 @@
             {
                 "ClientId": "WebBase.IDP",
                 "ClientName": "WebBase.IDP",
-                "ClientUri": "https://localhost:44303",
+                "ClientUri": "https://localhost:5103",
                 "AllowedGrantTypes": [
                     "authorization_code"
                 ],
@@ -95,14 +95,14 @@
                     }
                 ],
                 "RedirectUris": [
-                    "https://localhost:44303/signin-oidc"
+                    "https://localhost:5103/signin-oidc"
                 ],
-                "FrontChannelLogoutUri": "https://localhost:44303/signout-oidc",
+                "FrontChannelLogoutUri": "https://localhost:5103/signout-oidc",
                 "PostLogoutRedirectUris": [
-                    "https://localhost:44303/signout-callback-oidc"
+                    "https://localhost:5103/signout-callback-oidc"
                 ],
                 "AllowedCorsOrigins": [
-                    "https://localhost:44303"
+                    "https://localhost:5103"
                 ],
                 "AllowedScopes": [
                     "openid",
@@ -120,13 +120,13 @@
                 "RequireClientSecret": false,
                 "RequirePkce": true,
                 "RedirectUris": [
-                    "https://localhost:44302/swagger/oauth2-redirect.html"
+                    "https://localhost:5102/swagger/oauth2-redirect.html"
                 ],
                 "AllowedScopes": [
                     "WebBase.IDP_api"
                 ],
                 "AllowedCorsOrigins": [
-                    "https://localhost:44302"
+                    "https://localhost:5102"
                 ]
             }
         ]
